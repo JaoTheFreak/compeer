@@ -11,7 +11,11 @@ namespace Compeer.Core.Data
 
         public DbSet<League> Leagues { get; set; }
 
+        public DbSet<Lane> Lanes { get; set; }
 
+        public DbSet<Match> Matches { get; set; }
+
+        public DbSet<Queue> Queues { get; set; }
 
         public CompeerContext()
         {                 
