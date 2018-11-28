@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/vendors/base/vendors.bundle.css",
+              "src/assets/demo/demo8/base/style.bundle.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendors/base/vendors.bundle.js",
+              "src/assets/demo/demo8/base/scripts.bundle.js"
+            ]
           },
           "configurations": {
             "production": {

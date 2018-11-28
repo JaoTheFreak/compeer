@@ -1,20 +1,50 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
 
+  <!-- begin::Header -->
+  <header id="m_header" class="m-grid__item		m-header " m-minimize="minimize" m-minimize-mobile="minimize" m-minimize-offset="10" m-minimize-mobile-offset="10">
+      <div class="m-header__top">
+          <div class="m-container m-container--fluid m-container--full-height m-page__container">
+              <div class="m-stack m-stack--ver m-stack--desktop">
+
+                  <app-logo></app-logo>
+
+                  <app-search-bar></app-search-bar>
+
+                  <app-top-bar></app-top-bar>
+
+              </div>
+          </div>
+      </div>
+      <div class="m-header__bottom">
+          <div class="m-container m-container--fluid m-container--full-height m-page__container">
+              <div class="m-stack m-stack--ver m-stack--desktop">
+                  <app-top-menu></app-top-menu>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <!-- end::Header -->
+
+  <!-- begin::Body -->
+  <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop m-page__container m-body">
+
+      <div class="m-grid__item m-grid__item--fluid m-wrapper">
+          <router-outlet></router-outlet>
+      </div>
+
+  </div>
+  <!-- end::Body -->
+  <app-footer></app-footer>
+  
+</div>
+<!-- end:: Page -->
+
+<!-- begin::Scroll Top -->
+<div id="m_scroll_top" class="m-scroll-top">
+  <i class="la la-arrow-up"></i>
+</div>
+<!-- end::Scroll Top -->
+
+<app-admin-menu></app-admin-menu>
