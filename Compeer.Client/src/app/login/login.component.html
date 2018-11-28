@@ -1,0 +1,26 @@
+<div class="m-grid m-grid--hor m-grid--root m-page">
+
+  <div class="m-subheader ">
+      <div class="d-flex align-items-center">
+          <div class="mr-auto">
+              <h3 class="m-subheader__title m-subheader__title--separator">{{headerText}}</h3>
+          </div>
+      </div>
+  </div>
+
+  <!-- END: Subheader -->
+  <div class="m-content">
+      <div class="row">
+          <div class="col-12">
+              <form #authDetails="ngForm" (ngSubmit)="onSubmit(authDetails)" novalidate>
+                  <label for="email"><b>E-mail</b></label>
+                  <input type="text" name="email" ngModel required>
+                  <label for="password"><b>Senha</b></label>
+                  <input type="password" name="password" ngModel required>
+                  <button>Entrar</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+</div>
