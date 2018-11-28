@@ -40,7 +40,7 @@ namespace Compeer.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            
             app.UseMvc();
         }
     }
