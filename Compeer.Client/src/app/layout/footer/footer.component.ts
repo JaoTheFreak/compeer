@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  private footerText:string = 'Compeer App. Projeto Faculdade Bagozzi. Arthur K. Neto, João A. Martins, Luis Fernando, Maycon Lesko'
+
   constructor() { }
 
   ngOnInit() {
