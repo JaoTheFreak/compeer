@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Compeer.Core.Data;
 
 namespace Compeer.API
 {
@@ -25,11 +26,13 @@ namespace Compeer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CompeerContext>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, CompeerContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -39,9 +42,10 @@ namespace Compeer.API
             {
                 app.UseHsts();
             }
-
-            
             app.UseMvc();
+
+            dbContext.Database.EnsureCreated();
+
         }
     }
 }

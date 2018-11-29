@@ -17,11 +17,10 @@ namespace Compeer.Core.Data
 
         public DbSet<Queue> Queues { get; set; }
 
-        public CompeerContext()
+        public CompeerContext(DbContextOptions<CompeerContext> options) : base(options)
         {                 
 
         }
-
 
     }
 }
