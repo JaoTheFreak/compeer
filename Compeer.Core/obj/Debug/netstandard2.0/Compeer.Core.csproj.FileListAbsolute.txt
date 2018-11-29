@@ -1,0 +1,9 @@
+D:\compeer\Compeer.Core\bin\Debug\netstandard2.0\Compeer.Core.deps.json
+D:\compeer\Compeer.Core\bin\Debug\netstandard2.0\Compeer.Core.dll
+D:\compeer\Compeer.Core\bin\Debug\netstandard2.0\Compeer.Core.pdb
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.csprojAssemblyReference.cache
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.csproj.CoreCompileInputs.cache
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.AssemblyInfoInputs.cache
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.AssemblyInfo.cs
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.dll
+D:\compeer\Compeer.Core\obj\Debug\netstandard2.0\Compeer.Core.pdb

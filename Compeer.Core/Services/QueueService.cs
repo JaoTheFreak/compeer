@@ -14,7 +14,7 @@ namespace Compeer.Core.Services
 
         public QueueService(CompeerContext db)
         {
-            
+            _db = db;
         }
 
         public void Add(Queue entity)

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Compeer.Core.Services;
+using Compeer.Core.Interfaces;
+using Compeer.Core.Entities;
 
 namespace Compeer.API.Controllers
 {
@@ -10,6 +13,13 @@ namespace Compeer.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IService<Queue> _queueService;
+
+        public ValuesController(IService<Queue> queueService)
+        {
+            _queueService = queueService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()

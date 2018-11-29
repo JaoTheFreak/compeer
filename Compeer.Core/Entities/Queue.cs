@@ -10,11 +10,14 @@ namespace Compeer.Core.Entities
         [Required(ErrorMessage="Nome da Fila é obrigatório")]
         [MaxLength(50)]
         public string QueueName { get; set; }
+        
         [Required(ErrorMessage="Denominador da Fila é Obrigatório")]
         [MaxLength(50)]
         public int QueuePvpDenominator { get; set; }
+
         [Timestamp]
         public DateTime CreatedAt { get; set; }
+
         [Timestamp]
         public DateTime UpdatedAt { get; set; }
     }
