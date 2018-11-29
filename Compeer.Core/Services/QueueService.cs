@@ -10,47 +10,39 @@ namespace Compeer.Core.Services
 {
     public class QueueService : IService<Queue>
     {
+        private readonly CompeerContext _db;
+
+        public QueueService(CompeerContext db)
+        {
+            
+        }
+
         public void Add(Queue entity)
         {
-            using(var ctx = new CompeerContext())
-            {
-                ctx.Add(entity);
-                ctx.SaveChanges();
-            }
+            _db.Add(entity);
+            _db.SaveChanges();
         }
 
         public void Delete(Queue entity)
         {
-            using(var ctx = new CompeerContext())
-            {
-                ctx.Remove(entity);
-                ctx.SaveChanges();
-            }
+            _db.Remove(entity);
+            _db.SaveChanges();
         }
 
         public IEnumerable<Queue> Get()
         {
-            using(var ctx = new CompeerContext())
-            {
-                return ctx.Queues;
-            }
+            return _db.Queues;
         }
 
         public IEnumerable<Queue> Get(Expression<Func<Queue, bool>> predicate)
         {
-            using(var ctx = new CompeerContext())
-            {
-                return ctx.Queues.Where(predicate);
-            }
+            return _db.Queues.Where(predicate);
         }
 
         public void Update(Queue entity)
         {
-            using(var ctx = new CompeerContext())
-            {
-                ctx.Update(entity);
-                ctx.SaveChanges();
-            }
+            _db.Update(entity);
+            _db.SaveChanges();
         }
     }
 }
