@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using Compeer.Core.Data;
 
 namespace Compeer.API
@@ -26,7 +27,8 @@ namespace Compeer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CompeerContext>();
+            services.AddDbContext<CompeerContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -45,7 +47,6 @@ namespace Compeer.API
             app.UseMvc();
 
             dbContext.Database.EnsureCreated();
-
         }
     }
 }

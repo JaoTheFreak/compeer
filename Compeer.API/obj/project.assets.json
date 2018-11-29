@@ -11599,11 +11599,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\compeer\\Compeer.API\\Compeer.API.csproj",
+      "projectUniqueName": "D:\\compeer\\Compeer.API\\Compeer.API.csproj",
       "projectName": "Compeer.API",
-      "projectPath": "d:\\compeer\\Compeer.API\\Compeer.API.csproj",
+      "projectPath": "D:\\compeer\\Compeer.API\\Compeer.API.csproj",
       "packagesPath": "C:\\Users\\JoaoI\\.nuget\\packages\\",
-      "outputPath": "d:\\compeer\\Compeer.API\\obj\\",
+      "outputPath": "D:\\compeer\\Compeer.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11622,8 +11622,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "d:\\compeer\\Compeer.Core\\Compeer.Core.csproj": {
-              "projectPath": "d:\\compeer\\Compeer.Core\\Compeer.Core.csproj"
+            "D:\\compeer\\Compeer.Core\\Compeer.Core.csproj": {
+              "projectPath": "D:\\compeer\\Compeer.Core\\Compeer.Core.csproj"
             }
           }
         }
@@ -11660,5 +11660,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache D:\\compeer\\Compeer.API\\obj\\Compeer.API.csproj.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
