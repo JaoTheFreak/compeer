@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Compeer.Core.Interfaces
 {
@@ -11,5 +12,7 @@ namespace Compeer.Core.Interfaces
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
+
+        Task AddAsync(T entity);
     }
 }

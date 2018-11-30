@@ -19,57 +19,57 @@ namespace Compeer.API.Services
             _tokenSettings = tokenSettings;    
         }
 
-        // public JsonWebToken GetNewToken(User userToUse)
-        // {
-        //     var identity = GetClaimsIdentity(userToUse);
+        public Compeer.API.Model.JsonWebToken GetNewToken(User userToUse)
+        {
+            var identity = GetClaimsIdentity(userToUse);
 
-        //     var handler = new JwtSecurityTokenHandler();
+            var handler = new JwtSecurityTokenHandler();
 
-        //     var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-        //     {
-        //         Subject = identity,
-        //         Issuer = _tokenSettings.Issuer,
-        //         Audience = _tokenSettings.Audience,
-        //         IssuedAt = _tokenSettings.IssuedAt,
-        //         NotBefore = _tokenSettings.NotBefore,
-        //         Expires = _tokenSettings.AccessTokenExpiration,
-        //         SigningCredentials = _tokenSettings.SigningCredentials
-        //     });
+            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            {
+                Subject = identity,
+                Issuer = _tokenSettings.Issuer,
+                Audience = _tokenSettings.Audience,
+                IssuedAt = _tokenSettings.IssuedAt,
+                NotBefore = _tokenSettings.NotBefore,
+                Expires = _tokenSettings.AccessTokenExpiration,
+                SigningCredentials = _tokenSettings.SigningCredentials
+            });
 
-        //     var accessToken = handler.WriteToken(securityToken);
+            var accessToken = handler.WriteToken(securityToken);
 
-        //     return new JsonWebToken
-        //     {
-        //         AccessToken = accessToken,
-        //         RefreshToken = CreateRefreshToken(userToUse.Email),
-        //         ExpiresIn = (long)TimeSpan.FromMinutes(_tokenSettings.ValidForMinutes).TotalSeconds
-        //     };
+            return new Compeer.API.Model.JsonWebToken
+            {
+                AccessToken = accessToken,
+                RefreshToken = CreateRefreshToken(userToUse.Email),
+                ExpiresIn = (long) TimeSpan.FromMinutes(_tokenSettings.ValidForMinutes).TotalSeconds
+            };
+        }
 
-        // }
+        private RefreshToken CreateRefreshToken(string username)
+        {
+            var refreshToken = new RefreshToken
+            {
+                Username = username,
+                ExpirationDate = _tokenSettings.RefreshTokenExpiration
+            };
 
-        // private RefreshToken CreateRefreshToken(string username)
-        // {
-        //     var refreshToken = new RefreshToken
-        //     {
-        //         Username = username,
-        //         ExpirationDate = _settings.RefreshTokenExpiration
-        //     };
+            string token;
 
-        //     string token;
-        //     var randomNumber = new byte[32];
+            var randomNumber = new byte[32];
 
-        //     using (var rng = RandomNumberGenerator.Create())
-        //     {
-        //         rng.GetBytes(randomNumber);
-        //         token = Convert.ToBase64String(randomNumber);
-        //     }
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                token = Convert.ToBase64String(randomNumber);
+            }
 
-        //     refreshToken.Token = token.Replace("+", string.Empty)
-        //         .Replace("=", string.Empty)
-        //         .Replace("/", string.Empty);
+            refreshToken.Token = token.Replace("+", string.Empty)
+                .Replace("=", string.Empty)
+                .Replace("/", string.Empty);
 
-        //     return refreshToken;
-        // }
+            return refreshToken;
+        }
 
         private static ClaimsIdentity GetClaimsIdentity(User user)
         {
@@ -77,13 +77,14 @@ namespace Compeer.API.Services
             (
                 new GenericIdentity(user.Email),
                 new[] {
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Sub, user.SummonerName),
+                    new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Sub, user.SummonerName),
                     new Claim("UserId", user.Id.ToString())
                 }
             );
 
             return identity;
         }
+    
     }
 }
