@@ -5,6 +5,7 @@ using Compeer.Core.Data;
 using System;
 using System.Linq.Expressions;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Compeer.Core.Services
 {
@@ -21,6 +22,12 @@ namespace Compeer.Core.Services
         {
             _db.Add(entity);
             _db.SaveChanges();
+        }
+
+        public async Task AddAsync(Queue entity)
+        {
+            await _db.AddAsync(entity);            
+            await _db.SaveChangesAsync();
         }
 
         public void Delete(Queue entity)
