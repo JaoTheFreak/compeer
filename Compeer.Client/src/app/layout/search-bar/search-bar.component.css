@@ -1,0 +1,9 @@
+.search-bar{
+    position: absolute;
+    top:16px;
+    left: 520px;
+}
+
+.m-header-search__input{
+    width: 500px;
+}
