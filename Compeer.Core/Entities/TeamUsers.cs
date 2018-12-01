@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Compeer.Core.Entities
 {
@@ -6,14 +7,11 @@ namespace Compeer.Core.Entities
     {
         public int Id { get; set; }
 
-        public int TeamId { get; set; }
-
-        public int UserId { get; set; }
+        public virtual MatchTeams Team { get; set; }
 
         public virtual User User { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime UpdatedAt { get; set; }
+        [Timestamp]
+        public DateTime TimeStamp { get; set; }
     }
 }

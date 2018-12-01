@@ -16,9 +16,6 @@ namespace Compeer.Core.Entities
         public int QueuePvpDenominator { get; set; }
 
         [Timestamp]
-        public DateTime CreatedAt { get; set; }
-
-        [Timestamp]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime TimeStamp { get; set; }
     }
 }
