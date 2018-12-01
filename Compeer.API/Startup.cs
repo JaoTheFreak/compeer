@@ -15,6 +15,8 @@ using Compeer.Core.Data;
 using Compeer.Core.Interfaces;
 using Compeer.Core.Entities;
 using Compeer.Core.Services;
+using RiotSharp.Interfaces;
+using RiotSharp;
 
 namespace Compeer.API
 {
@@ -42,6 +44,12 @@ namespace Compeer.API
         public void ConfigureDependencies(IServiceCollection services)
         {
             services.AddTransient<IService<Queue>, QueueService>();
+
+            services.AddTransient<IService<User>, UserService>();
+
+            services.AddTransient<UtilService>();
+
+            services.AddTransient<IRiotApi, RiotApi>(s => RiotApi.GetDevelopmentInstance("RGAPI-73e9d8c7-8d74-448a-9545-6f1b7efedf8a"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

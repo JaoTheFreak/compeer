@@ -2708,6 +2708,19 @@
           "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
+      "RiotSharp/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.3/RiotSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/RiotSharp.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -7095,6 +7108,18 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml",
         "remotion.linq.2.2.0.nupkg.sha512",
         "remotion.linq.nuspec"
+      ]
+    },
+    "RiotSharp/3.0.1": {
+      "sha512": "LPG2Fb8MXSs6orDcNwmeRIDl2Z06UNgKpw5rHWacrBvvwYOg+0oL1zHndhWQRX3RvtLN4XJiU6Y4w7aw4eyiGA==",
+      "type": "package",
+      "path": "riotsharp/3.0.1",
+      "files": [
+        ".signature.p7s",
+        "lib/netstandard1.3/RiotSharp.dll",
+        "lib/netstandard1.3/RiotSharp.xml",
+        "riotsharp.3.0.1.nupkg.sha512",
+        "riotsharp.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -11657,6 +11682,7 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Pomelo.EntityFrameworkCore.MySql >= 2.1.2",
+      "RiotSharp >= 3.0.1",
       "System.IdentityModel.Tokens.Jwt >= 5.3.0"
     ]
   },
@@ -11719,6 +11745,10 @@
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[2.1.2, )"
+          },
+          "RiotSharp": {
+            "target": "Package",
+            "version": "[3.0.1, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

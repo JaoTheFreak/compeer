@@ -5,7 +5,7 @@ namespace Compeer.Core.Data
 {
     public class CompeerContext : DbContext
     {
-        // public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
         // public DbSet<Champion> Champions { get; set; }
 

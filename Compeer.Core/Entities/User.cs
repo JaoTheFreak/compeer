@@ -11,9 +11,9 @@ namespace Compeer.Core.Entities
         [Required(ErrorMessage="Summoner Name é Obrigatório")]
         [MaxLength(45)]
         public string SummonerName { get; set; }
-        [Required(ErrorMessage="Summoner Id é Obrigatório")]
-        [MaxLength(45)]
-        public long SummonerId { get; set; }
+        // [Required(ErrorMessage="Summoner Id é Obrigatório")]
+        [MaxLength(45)] 
+        public Nullable<long> SummonerId { get; set; }
         [Required(ErrorMessage="Password é Obrigatório")]
         [MaxLength(100)]
         public string Password { get; set; }
