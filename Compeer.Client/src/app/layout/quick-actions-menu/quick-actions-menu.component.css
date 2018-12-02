@@ -1,0 +1,12 @@
+.m-nav__link-icon-wrapper,.flaticon-share{
+    color: white;
+    font-size: 32px;
+    width: 48px;
+    height: 48px;
+    margin-top: 4px;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
