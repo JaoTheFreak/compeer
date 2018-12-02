@@ -36,9 +36,15 @@ namespace Compeer.API
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        
+
+
             //Dependency configs
             ConfigureDependencies(services);
+        }
+
+        public void ConfigureToken(IServiceCollection services)
+        {
+            
         }
 
         public void ConfigureDependencies(IServiceCollection services)

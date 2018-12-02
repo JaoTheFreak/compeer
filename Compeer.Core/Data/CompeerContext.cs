@@ -19,7 +19,7 @@ namespace Compeer.Core.Data
 
         public CompeerContext(DbContextOptions<CompeerContext> options) : base(options)
         {                 
-
+            
         }
 
     }
