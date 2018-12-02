@@ -1,0 +1,9 @@
+D:\compeer\Compeer.Core\bin\Debug\netcoreapp2.1\Compeer.Core.deps.json
+D:\compeer\Compeer.Core\bin\Debug\netcoreapp2.1\Compeer.Core.dll
+D:\compeer\Compeer.Core\bin\Debug\netcoreapp2.1\Compeer.Core.pdb
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.csprojAssemblyReference.cache
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.csproj.CoreCompileInputs.cache
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.AssemblyInfoInputs.cache
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.AssemblyInfo.cs
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.dll
+D:\compeer\Compeer.Core\obj\Debug\netcoreapp2.1\Compeer.Core.pdb

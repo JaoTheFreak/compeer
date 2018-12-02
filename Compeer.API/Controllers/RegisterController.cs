@@ -37,7 +37,7 @@ namespace Compeer.API.Controllers
 
             _utilService = utilService;
         }
-
+        
         [HttpPost, AllowAnonymous, Route("Create")]
         public async Task<IActionResult> CreateUser([FromBody] User newUser)
         {
@@ -74,7 +74,11 @@ namespace Compeer.API.Controllers
             {
                 var tokenToReturn = _tokenService.GetNewToken(newUser);
 
-                return Ok(tokenToReturn);
+                return Ok(new 
+                {
+                    msg = "Usuário criado com sucesso."
+                });
+
             }
 
             return BadRequest();
