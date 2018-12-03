@@ -20,6 +20,7 @@ import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { TopMenuComponent } from './layout/top-menu/top-menu.component';
 import { UserMenuComponent } from './layout/user-menu/user-menu.component';
 import { RegisterComponent } from './register/register.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     TopBarComponent,
     TopMenuComponent,
     UserMenuComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { RegisterComponent } from './register/register.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'login', component:LoginComponent},
-      { path: 'register', component:RegisterComponent}
+      { path: 'register', component:RegisterComponent},
+      { path: 'search', component:SearchComponent}
     ])
   ],
   providers: [AuthGuard,AuthService],
