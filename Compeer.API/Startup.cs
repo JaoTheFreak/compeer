@@ -17,6 +17,7 @@ using Compeer.Core.Entities;
 using Compeer.Core.Services;
 using RiotSharp.Interfaces;
 using RiotSharp;
+using Compeer.API.Services;
 
 namespace Compeer.API
 {
@@ -37,7 +38,6 @@ namespace Compeer.API
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-
             //Dependency configs
             ConfigureDependencies(services);
         }
@@ -49,6 +49,8 @@ namespace Compeer.API
 
         public void ConfigureDependencies(IServiceCollection services)
         {
+            services.AddTransient<ITokenService,TokenService>();
+
             services.AddTransient<IService<Queue>, QueueService>();
 
             services.AddTransient<IService<User>, UserService>();

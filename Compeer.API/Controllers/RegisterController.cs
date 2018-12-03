@@ -25,13 +25,13 @@ namespace Compeer.API.Controllers
 
         public RegisterController(
             IService<User> userService,
-            //TokenService tokenService,
+            TokenService tokenService,
             IRiotApi riotApi,
             UtilService utilService)
         {
             _userService = userService;
 
-            //_tokenService = tokenService;
+            _tokenService = tokenService;
 
             _riotApi = riotApi;
 
@@ -41,6 +41,7 @@ namespace Compeer.API.Controllers
         [HttpPost, AllowAnonymous, Route("Create")]
         public async Task<IActionResult> CreateUser([FromBody] User newUser)
         {
+            /*
             try
             {
                 var summoner = await _riotApi.GetSummonerByNameAsync(Region.br, newUser.SummonerName);
@@ -67,7 +68,7 @@ namespace Compeer.API.Controllers
                         msg = $"Erro interno - {ex.Message}"
                 });
             }         
-
+            */
             await _userService.AddAsync(newUser);
 
             if(newUser.Id != 0)

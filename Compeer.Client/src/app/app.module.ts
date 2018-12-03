@@ -21,6 +21,7 @@ import { TopMenuComponent } from './layout/top-menu/top-menu.component';
 import { UserMenuComponent } from './layout/user-menu/user-menu.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SearchComponent } from './search/search.component';
     TopMenuComponent,
     UserMenuComponent,
     RegisterComponent,
-    SearchComponent
+    SearchComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { SearchComponent } from './search/search.component';
       { path: '', component: HomeComponent},
       { path: 'login', component:LoginComponent},
       { path: 'register', component:RegisterComponent},
-      { path: 'search', component:SearchComponent}
+      { path: 'search', component:SearchComponent},
+      { path: 'notifications', component:NotificationsComponent}
     ])
   ],
   providers: [AuthGuard,AuthService],
