@@ -7,10 +7,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Security.Principal;
+using Compeer.API.Interfaces;
 
 namespace Compeer.API.Services
 {
-    public class TokenService 
+    public class TokenService : ITokenService
     {
         private readonly TokenSetting _tokenSettings;
 
@@ -79,7 +80,8 @@ namespace Compeer.API.Services
                 new[] {
                     new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Sub, user.SummonerName),
-                    new Claim("UserId", user.Id.ToString())
+                    new Claim("UserId", user.Id.ToString()),
+                    new Claim("User", user.Email)
                 }
             );
 
