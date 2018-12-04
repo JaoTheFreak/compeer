@@ -9,6 +9,7 @@ using RiotSharp.Interfaces;
 using RiotSharp.Misc;
 using Compeer.Core.Services;
 using System;
+using Compeer.API.Interfaces;
 
 namespace Compeer.API.Controllers
 {
@@ -17,7 +18,7 @@ namespace Compeer.API.Controllers
     public class RegisterController : ControllerBase
     {
         private readonly IService<User> _userService;
-        private readonly TokenService _tokenService;
+        private readonly ITokenService _tokenService;
 
         private readonly IRiotApi _riotApi;
 
@@ -25,7 +26,7 @@ namespace Compeer.API.Controllers
 
         public RegisterController(
             IService<User> userService,
-            TokenService tokenService,
+            ITokenService tokenService,
             IRiotApi riotApi,
             UtilService utilService)
         {
@@ -37,11 +38,12 @@ namespace Compeer.API.Controllers
 
             _utilService = utilService;
         }
+
+
         
         [HttpPost, AllowAnonymous, Route("Create")]
         public async Task<IActionResult> CreateUser([FromBody] User newUser)
-        {
-            /*
+        {            
             try
             {
                 var summoner = await _riotApi.GetSummonerByNameAsync(Region.br, newUser.SummonerName);
@@ -68,7 +70,7 @@ namespace Compeer.API.Controllers
                         msg = $"Erro interno - {ex.Message}"
                 });
             }         
-            */
+            
             await _userService.AddAsync(newUser);
 
             if(newUser.Id != 0)
@@ -77,12 +79,24 @@ namespace Compeer.API.Controllers
 
                 return Ok(new 
                 {
-                    msg = "Usuário criado com sucesso."
+                    msg = "Usuário criado com sucesso.",
+                    tokenAccess = tokenToReturn.AccessToken,
+                    expireIn = tokenToReturn.ExpiresIn
                 });
 
             }
 
             return BadRequest();
         }
+    
+    
+        [HttpGet, Route("Test"), Authorize(Policy = "CompeerUser")]
+        public async Task<IActionResult> Test(){
+
+            await Task.Delay(TimeSpan.FromMilliseconds(500));
+
+            return Ok("Hello World");
+        }
+    
     }
 }

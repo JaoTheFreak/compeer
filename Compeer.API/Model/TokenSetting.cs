@@ -2,10 +2,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
+using Compeer.API.Interfaces;
 
 namespace Compeer.API.Model
 {
-    public class TokenSetting
+    public class TokenSetting : ITokenSetting
     {
         public string Audience { get; set; }
         public string Issuer { get; set; }

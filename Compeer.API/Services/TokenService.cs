@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Security.Principal;
+using Compeer.API.Interfaces;
 
 namespace Compeer.API.Services
 {
@@ -79,51 +80,13 @@ namespace Compeer.API.Services
                 new[] {
                     new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Sub, user.SummonerName),
-                    new Claim("UserId", user.Id.ToString())
+                    new Claim("UserId", user.Id.ToString()),
+                    new Claim("User", user.Email)
                 }
             );
 
             return identity;
         }
-
-        RefreshToken ITokenService.CreateRefreshToken(string username)
-        {
-            var refreshToken = new RefreshToken
-            {
-                Username = username,
-                ExpirationDate = _tokenSettings.RefreshTokenExpiration
-            };
-
-            string token;
-
-            var randomNumber = new byte[32];
-
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(randomNumber);
-                token = Convert.ToBase64String(randomNumber);
-            }
-
-            refreshToken.Token = token.Replace("+", string.Empty)
-                .Replace("=", string.Empty)
-                .Replace("/", string.Empty);
-
-            return refreshToken;
-        }
-
-        ClaimsIdentity ITokenService.GetClaimsIdentity(User user)
-        {
-            var identity = new ClaimsIdentity
-            (
-                new GenericIdentity(user.Email),
-                new[] {
-                    new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.Sub, user.SummonerName),
-                    new Claim("UserId", user.Id.ToString())
-                }
-            );
-
-            return identity;
-        }
+        
     }
 }
