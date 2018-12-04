@@ -18,8 +18,11 @@ using Compeer.Core.Entities;
 using Compeer.Core.Services;
 using RiotSharp.Interfaces;
 using RiotSharp;
+<<<<<<< HEAD
 using Compeer.API.Model;
 using Compeer.API.Interfaces;
+=======
+>>>>>>> d9f66de2b85c929f4372bd2d37077447efacf2f8
 using Compeer.API.Services;
 
 namespace Compeer.API
@@ -41,8 +44,11 @@ namespace Compeer.API
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+<<<<<<< HEAD
             ConfigureToken(services, new TokenSetting(this.Configuration));
 
+=======
+>>>>>>> d9f66de2b85c929f4372bd2d37077447efacf2f8
             //Dependency configs
             ConfigureDependencies(services);
         }
@@ -85,6 +91,8 @@ namespace Compeer.API
 
         public void ConfigureDependencies(IServiceCollection services)
         {
+            services.AddTransient<ITokenService,TokenService>();
+
             services.AddTransient<IService<Queue>, QueueService>();
 
             services.AddTransient<IService<User>, UserService>();
