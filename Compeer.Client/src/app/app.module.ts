@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -45,6 +46,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},

@@ -1,29 +1,30 @@
 <div class="m-grid m-grid--hor m-grid--root m-page">
-    <form class="m-form m-form--fit m-form--label-align-right">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="m-form m-form--fit m-form--label-align-right">
         <div class="m-portlet__body">
           <div class="form-group m-form__group row">
             <div class="col-10 ml-auto">
               <h2 class="m-form__section">Comece a utilizar o sistema Compeer</h2>
               <h4>Conecte-se com seus amigos para partidas de <strong>League Of Legends</strong> mais desafiadoras. O sistema Compeer busca seus dados diretamente dos servidores da <strong>Riot Games</strong>. Tenha experiências mais vívidas com partidas projetadas pelos próprios jogadores e que visam maior competitividade. Atue como especialista na área em que você mais se destaca. Crie partidas e convide seus amigos.</h4>
               <h6>Crie sua conta gratuita para ter acesso ao sistema Compeer.</h6>
+              <h4 style="color:red">{{ responseMessage }}</h4>
             </div>
           </div>
           <div class="form-group m-form__group row">
             <label for="example-text-input" class="col-2 col-form-label">E-mail</label>
             <div class="col-7">
-              <input class="form-control m-input" type="text" value="email@compeer.com.br">
+              <input class="form-control m-input" type="text" value="email@compeer.com.br" name="Email" ngModel required>
             </div>
           </div>
           <div class="form-group m-form__group row">
             <label for="example-text-input" class="col-2 col-form-label">Nome de Invocador</label>
             <div class="col-7">
-              <input class="form-control m-input" type="text" value="Master Viciado...">
+              <input class="form-control m-input" type="text" value="Master Viciado..." name="SummonerName" ngModel required>
             </div>
           </div>
           <div class="form-group m-form__group row">
             <label for="example-text-input" class="col-2 col-form-label">Senha</label>
             <div class="col-7">
-              <input class="form-control m-input" type="password" value="senha1234">
+              <input class="form-control m-input" type="password" value="senha1234" name="Password" ngModel required>
             </div>
           </div>
         </div>
@@ -33,7 +34,7 @@
               <div class="col-2">
               </div>
               <div class="col-7">
-                <button type="reset" class="btn btn-success m-btn m-btn--air m-btn--custom">Criar Conta</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success m-btn m-btn--air m-btn--custom">Criar Conta</button>
               </div>
             </div>
           </div>
