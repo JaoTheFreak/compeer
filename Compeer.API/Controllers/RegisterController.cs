@@ -39,11 +39,11 @@ namespace Compeer.API.Controllers
             _utilService = utilService;
         }
 
-
         
         [HttpPost, AllowAnonymous, Route("Create")]
         public async Task<IActionResult> CreateUser([FromBody] User newUser)
-        {            
+        {      
+            /*      
             try
             {
                 var summoner = await _riotApi.GetSummonerByNameAsync(Region.br, newUser.SummonerName);
@@ -70,7 +70,7 @@ namespace Compeer.API.Controllers
                         msg = $"Erro interno - {ex.Message}"
                 });
             }         
-            
+            */
             await _userService.AddAsync(newUser);
 
             if(newUser.Id != 0)

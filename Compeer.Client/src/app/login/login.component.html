@@ -1,23 +1,24 @@
 <div class="m-grid m-grid--hor m-grid--root m-page">
-    <form class="m-form m-form--fit m-form--label-align-right">
+    <form #authDetails="ngForm" (ngSubmit)="onSubmit(authDetails)" class="m-form m-form--fit m-form--label-align-right">
         <div class="m-portlet__body">
           <div class="form-group m-form__group row">
             <div class="col-10 ml-auto">
               <h2>Bem-Vindo. Acesse o sistema Compeer</h2>
               <h4>Partidas mais desafiadoras lhe aguardam no universo do <strong>League of Legends</strong>. Crie suas partidas e atue na área em que você mais de destaca.</h4>
               <h6>Informe seus dados para iniciar o sistema.</h6>
+              <h6>{{ responseMessage }}</h6>
             </div>
           </div>
           <div class="form-group m-form__group row">
             <label for="example-text-input" class="col-2 col-form-label">E-mail</label>
             <div class="col-7">
-              <input class="form-control m-input" type="text" value="email@compeer.com.br">
+              <input class="form-control m-input" type="text" value="email@compeer.com.br" name="Email" ngModel required>
             </div>
           </div>
           <div class="form-group m-form__group row">
             <label for="example-text-input" class="col-2 col-form-label">Senha</label>
             <div class="col-7">
-              <input class="form-control m-input" type="password" value="senha1234">
+              <input class="form-control m-input" type="password" value="senha1234" name="Password" ngModel required>
             </div>
           </div>
         </div>
@@ -27,8 +28,8 @@
               <div class="col-2">
               </div>
               <div class="col-7">
-                <button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Entrar</button>&nbsp;&nbsp;
-                <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Registrar</button>
+                <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">Entrar</button>&nbsp;&nbsp;
+                <a href="/register" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Registrar</a>
               </div>
             </div>
           </div>

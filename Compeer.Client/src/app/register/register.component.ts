@@ -22,14 +22,12 @@ export class RegisterComponent implements OnInit {
     
     let user = registerForm.value;
 
-    this.http.post("http://localhost:5000/api/Register/Create", user, {
+    this.http.post("http://localhost:5000/api/register/create", user, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      }),
-      responseType: 'text'
+        "Content-Type": "application/json",
+      })
     }).subscribe(response => {
       this.responseMessage = "Usuário Cadastrado com Sucesso! " + response;
-      //this.router.navigate(["/register"]);
     }, err => {
       this.responseMessage = "Erro ao cadastrar usuário : " + err.statusText;
     });

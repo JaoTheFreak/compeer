@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,6 +22,7 @@ using RiotSharp;
 using Compeer.API.Model;
 using Compeer.API.Interfaces;
 using Compeer.API.Services;
+using Microsoft.IdentityModel.Logging;
 
 namespace Compeer.API
 {
@@ -36,12 +38,16 @@ namespace Compeer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddDbContext<CompeerContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             ConfigureToken(services, new TokenSetting(this.Configuration));
+
+            IdentityModelEventSource.ShowPII = true; 
 
             //Dependency configs
             ConfigureDependencies(services);
@@ -115,6 +121,8 @@ namespace Compeer.API
             app.UseAuthentication();
 
             app.UseMvc();
+
+            app.UseCors(option => option.AllowAnyOrigin());
 
             dbContext.Database.EnsureCreated();
         }

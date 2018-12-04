@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -37,17 +38,18 @@ namespace Compeer.Core.Services
 
         public IEnumerable<User> Get()
         {
-            throw new NotImplementedException();
+            return _db.Users;
         }
 
         public IEnumerable<User> Get(Expression<Func<User, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _db.Users.Where(predicate);
         }
 
         public void Update(User entity)
         {
-            throw new NotImplementedException();
+            _db.Update(entity);
+            _db.SaveChanges();
         }
     }
 }
