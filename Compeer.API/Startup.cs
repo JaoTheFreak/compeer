@@ -23,6 +23,7 @@ using Compeer.API.Model;
 using Compeer.API.Interfaces;
 using Compeer.API.Services;
 using Microsoft.IdentityModel.Logging;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 
 namespace Compeer.API
 {
@@ -122,7 +123,7 @@ namespace Compeer.API
 
             app.UseMvc();
 
-            app.UseCors(option => option.AllowAnyOrigin());
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             dbContext.Database.EnsureCreated();
         }

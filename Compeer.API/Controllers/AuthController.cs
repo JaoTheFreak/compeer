@@ -43,7 +43,11 @@ namespace Compeer.API.Controllers
 
             if( user == null ) return NotFound( new { message = "O usuário ou senha estão incorretos" } );
 
-            return Ok(_tokenService.GetNewToken(user));
+            var token = _tokenService.GetNewToken(user);
+
+            Console.WriteLine("Returning Access Token : " + token.AccessToken);
+
+            return Ok(token);
 
         }
 
