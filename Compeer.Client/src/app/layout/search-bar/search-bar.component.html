@@ -3,13 +3,13 @@
 id="m_quicksearch" m-quicksearch-mode="default">
 
    <!--begin::Search Form -->
-   <form class="m-header-search__form">
+   <form #searchDetails="ngForm" class="m-header-search__form">
        <div class="m-header-search__wrapper">
            <span class="m-header-search__icon-search" id="m_quicksearch_search">
-               <i class="la la-search"></i>
+               <i (click)="doSearch(searchDetails)" class="la la-search"></i>
            </span>
            <span class="m-header-search__input-wrapper">
-               <input autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="Pesquisar. Jogador, Time, Etc..." id="m_quicksearch_input">
+               <input autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="Pesquisar. Jogador, Time, Etc..." id="m_quicksearch_input" name="TextSearch" ngModel required>
            </span>
            <span class="m-header-search__icon-close" id="m_quicksearch_close">
                <i class="la la-remove"></i>
