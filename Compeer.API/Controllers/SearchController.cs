@@ -20,7 +20,7 @@ namespace Compeer.API.Controllers
             _userService = userService;
         }
 
-        [HttpPost, Route("Search")]
+        [HttpPost, AllowAnonymous,Route("Friends")]
         public IActionResult Search([FromBody]TextToSearch textToSearch )
         {
             List<User> users = _userService.Get(u => u.Email.Contains(textToSearch.TextSearch)

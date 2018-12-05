@@ -1,6 +1,16 @@
+<div *ngIf="!searchResult">
+  <div class="row">
+    <div class="col-xl-8">
+      <h2>Nenhum Resultado Encontrado [Resultados : {{ searchResultCound }}]</h2>
+      <h5>Para buscar seus amigos no Compeer, utilize a barra seuperior e clique no ícone <i class="la la-search"></i>.</h5>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="searchResult">
 <div class="row">
   <div class="col-xl-8">
-    <h2>Resultados da Pesquisa</h2>
+    <h2>Resultados da Pesquisa [Resultados : {{ searchResultCound }}]</h2>
     <p>A pesquisa pelo termo <strong>'{{ term }}'</strong> retornou os seguintes resultados.</p>
   </div>
 </div>
@@ -11,6 +21,7 @@
        Usuários 
     --------------------------- -->
     <div class="m-portlet m-portlet--full-height  m-portlet--rounded">
+      
       <div class="m-portlet__head">
         <div class="m-portlet__head-caption">
           <div class="m-portlet__head-title">
@@ -18,12 +29,6 @@
               Usuários
             </h3>
           </div>
-        </div>
-        <div class="m-portlet__head-tools">
-          <ul class="nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm"
-            role="tablist">
-            Pesquisa por usuários com o nome <strong>'Texto Pesquisado'</strong>
-          </ul>
         </div>
       </div>
       <div class="m-portlet__body">
@@ -46,17 +51,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr *ngFor="let user of searchResult">
                       <td>
                         <div class="avatar-image">
                           <img src="assets/images/default_avatar.png" class="m--img-rounded m--marginless" alt="" />
                         </div>
                       </td>
                       <td>
-                        <span class="m-widget11__title">Master Viciado</span>
+                        <span class="m-widget11__title">{{ user['summonerName'] }}</span>
                         <span class="m-widget11__sub">Última partida jogada a <strong>5 dias atrás.</strong></span>
                       </td>
-                      <td>email@compeer.com</td>
+                      <td>{{ user['email'] }}</td>
                       <td class="m--align-right m--font-success">6,300</td>
                       <td class="m--align-right m--font-brand">150</td>
                       <td class="m--align-right m--font-danger">15,35%</td>
@@ -78,6 +83,6 @@
         </div>
       </div>
     </div>
-
   </div>
+</div>
 </div>
