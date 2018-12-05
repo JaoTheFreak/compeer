@@ -23,8 +23,7 @@ export class LoginComponent{
 
     this.http.post("https://localhost:5001/api/auth/login", user, {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods":"GET, POST, PUTs"
+        "Content-Type": "application/json"
       })
     }).subscribe(response => {
       this.storeToken(response);
