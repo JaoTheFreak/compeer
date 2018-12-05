@@ -49,11 +49,11 @@ import { NotificationsComponent } from './notifications/notifications.component'
     HttpModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent},
+      { path: '', component: HomeComponent, canActivate:[AuthGuard]},
       { path: 'login', component:LoginComponent},
       { path: 'register', component:RegisterComponent},
-      { path: 'search', component:SearchComponent},
-      { path: 'notifications', component:NotificationsComponent}
+      { path: 'search', component:SearchComponent,canActivate:[AuthGuard]},
+      { path: 'notifications', component:NotificationsComponent,canActivate:[AuthGuard]}
     ])
   ],
   providers: [AuthGuard,AuthService],

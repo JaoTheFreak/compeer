@@ -7,15 +7,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class AuthService {
 
-  private tokenName: string = 'compeer_token';
+  private tokenName: string = 'COMPEER_TOKEN';
   public invalidLogin: boolean = true;
 
   constructor(public http: HttpClient, public router: Router) { }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem(this.tokenName);
-    this.invalidLogin = token != null;
-    return this.invalidLogin;
+    //this.invalidLogin = token != null;
+    //return this.invalidLogin;
+    return token != null;
   }
 
   public logIn(userDetails: NgForm) {

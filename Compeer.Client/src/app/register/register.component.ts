@@ -28,8 +28,8 @@ export class RegisterComponent implements OnInit {
       })
     }).subscribe(response => {
       this.responseMessage = "Usuário Cadastrado com Sucesso! " + response;
-      console.log('Access Token recebido : ' + response.tokenAccess);
-      localStorage.setItem("COMPEER_TOKEN","Bearer " + response.tokenAccess);
+      console.log('Access Token recebido : ' + response['tokenAccess']);
+      localStorage.setItem("COMPEER_TOKEN","Bearer " + response['tokenAccess']);
       this.router.navigate(['/']);
     }, err => {
       this.responseMessage = "Erro ao cadastrar usuário : " + err.statusText;
